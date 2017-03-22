@@ -46,7 +46,8 @@ class HttpRequest {
           });
           resolve(
             {
-              response: d
+              json: d,
+              headers: this.headers
             }
           )
         } else {
