@@ -17,8 +17,8 @@ Yes it's in [ES6](https://github.com/lukehoban/es6features).
 
 ```
 var xhr = new HttpRequest("POST", "/foo/bar/", "application/json");
-xhr.send({elmer: "fudd"}).then((json) => {
-	console.log("got this", json);
+xhr.send({elmer: "fudd"}).then((data) => {
+	console.log("got this", data.json);
 }).catch((e) => {
 	console.log("something wrong", e);
 });
