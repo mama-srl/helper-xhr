@@ -56,10 +56,8 @@ class HttpRequest {
         this._fetchingPromise = null;
       }.bind(this);
 
-      this.xhr.onerror = function () {
-        console.log("** An error occurred during the transaction");
-        console.log("Error " + e.target.status + " occurred while receiving the document.");
-        reject(this.xhr.statusText);
+      this.xhr.onerror = function (e) {
+        reject(e.target.status);
         this._fetchingPromise = null;
       };
 
