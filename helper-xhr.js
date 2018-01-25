@@ -1,3 +1,5 @@
+"use strict";
+
 class HttpRequest {
   constructor(method, uri, contentType) {
     this._fetchingPromise = null;
@@ -83,5 +85,7 @@ class HttpRequest {
   }
 
 }
+
+module.exports = HttpRequest;
 
 export { HttpRequest };

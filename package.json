@@ -1,0 +1,24 @@
+{
+  "name": "helper-xhr",
+  "version": "1.0.0",
+  "description": "Simple promised xhr",
+  "main": "helper-xhr.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/max-favilli/helper-xhr.git"
+  },
+  "keywords": [
+    "xhr",
+    "ajax",
+    "promise"
+  ],
+  "author": "Max Favilli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/max-favilli/helper-xhr/issues"
+  },
+  "homepage": "https://github.com/max-favilli/helper-xhr#readme"
+}
