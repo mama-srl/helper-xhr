@@ -7,7 +7,9 @@ So I created this miny/simple/basic xhr request wrapper.
 
 ## Installation
 
-So far it's cut and paste.
+```
+npm install helper-xhr
+```
 
 There's no dependecy.
 
