@@ -18,6 +18,8 @@ Yes it's in [ES6](https://github.com/lukehoban/es6features).
 ## Usage
 
 ```
+import HttpRequest from 'helper-xhr';
+
 var xhr = new HttpRequest("POST", "/foo/bar/", "application/json");
 xhr.send({elmer: "fudd"}).then((data) => {
 	console.log("got this", data.json);
