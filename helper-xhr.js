@@ -86,6 +86,4 @@ class HttpRequest {
 
 }
 
-module.exports = HttpRequest;
-
-export { HttpRequest };
+export default HttpRequest;
