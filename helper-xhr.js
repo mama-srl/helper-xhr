@@ -44,7 +44,7 @@ class HttpRequest {
             if (!!v && (k === 'createdon' || k === 'updatedon' || k === 'askedon' || k === 'publishedon' || k === 'lastUpdated')) {
               return new Date(v);
             }
-            if (!!v && (k === 'json')) {
+            if (!!v && (k === 'json') && typeof v == "string") {
               return JSON.parse(v);
             }
             return v;
