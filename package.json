@@ -1,6 +1,6 @@
 {
   "name": "helper-xhr",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple promised xhr",
   "main": "helper-xhr.js",
   "scripts": {
