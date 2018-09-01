@@ -20,5 +20,13 @@
   "bugs": {
     "url": "https://github.com/max-favilli/helper-xhr/issues"
   },
-  "homepage": "https://github.com/max-favilli/helper-xhr#readme"
+  "homepage": "https://github.com/max-favilli/helper-xhr#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.0",
+    "babel-preset-env": "^1.7.0",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
+  }
 }
