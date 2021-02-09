@@ -1,7 +1,7 @@
 "use strict";
 
 class HttpRequest {
-  constructor(method, uri, contentType) {
+  constructor(method, uri, contentType, headers) {
     this._fetchingPromise = null;
     this.xhr = new XMLHttpRequest();
     if (!!method && !!uri) {
@@ -9,6 +9,11 @@ class HttpRequest {
     }
     if (!!contentType) {
       this.xhr.setRequestHeader('Content-Type', contentType);
+    }
+    if (headers && headers.length) {
+      headers.forEach(h => {
+        this.xhr.setRequestHeader(h.header, h.value);
+      });
     }
   }
 
@@ -41,7 +46,7 @@ class HttpRequest {
 
         if (this.xhr.status === 200) {
           var d = JSON.parse(this.xhr.responseText, function (k, v) {
-            if (!!v && (k === 'createdon' || k === 'updatedon' || k === 'askedon' || k === 'publishedon' || k === 'lastUpdated')) {
+            if (!!v && (k === 'createdon' || k === 'updatedon' || k === 'askedon' || k === 'publishedon' || k === 'lastUpdated' && Date.parse(v))) {
               return new Date(v);
             }
             if (!!v && (k === 'json') && typeof v == "string") {
@@ -56,17 +61,21 @@ class HttpRequest {
             }
           )
         } else {
-          reject(this.xhr.statusText);
+          reject(this.xhr.statusText || ("status " + this.xhr.status));
         }
         this._fetchingPromise = null;
       }.bind(this);
 
-      this.xhr.onerror = function (e) {
+      this.xhr.onerror = (e) => {
         reject(e.target.status);
         this._fetchingPromise = null;
       };
 
-      this.xhr.send(JSON.stringify(payload));
+      if (payload instanceof FormData) {
+        this.xhr.send(payload);
+      } else {
+        this.xhr.send(JSON.stringify(payload));
+      }
 
       //this.xhr.onreadystatechange = function () {
       //  if (this.readyState == this.HEADERS_RECEIVED) {
